@@ -13,12 +13,10 @@ interface Props {
 const SearchScreen:FC<Props> = (props) => {
     return (
         <View style={styles.container}> 
-            <View style={styles.backButton}>
-                <Pressable style={styles.backButton} onPress={props.goBack}>
-                    <Ionicons name="arrow-back-outline" size={20} />
-                    <Text>CityPop</Text>
-                </Pressable>
-            </View>
+            <Pressable style={styles.backButton} onPress={props.goBack}>
+                <Ionicons name="arrow-back-outline" size={22} />
+                <Text style={styles.backButtonText}>CityPop</Text>
+            </Pressable>
             <View style={styles.textContainer}>
                 <Text style={styles.text}>{props.text}</Text>
             </View>
@@ -46,8 +44,11 @@ const styles = StyleSheet.create({
         width: 70,
         height: 70,
         position: "absolute",
-        top: 20,
-        left: 2,
+        top: 30,
+        left: 5,
+    },
+    backButtonText: {
+        fontSize: 15
     },
     container: {
         flex: 1,
