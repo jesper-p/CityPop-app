@@ -1,10 +1,10 @@
+import React from 'react';
 import HomeScreen from '../screens/HomeScreen';
 
-function HomePresenter(){
+export default function HomePresenter({ navigation }: any){
     return (
         <HomeScreen 
-            cityButtonPressed="Pressed search by city" 
-            countryButtonPressed="Pressed search by country"
+            navigation={navigation}
         /> 
     );
 }

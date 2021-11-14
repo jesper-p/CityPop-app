@@ -1,11 +1,12 @@
+import React from 'react';
 import CountryScreen from '../screens/CountryScreen';
 
-function CountryPresenter() {
+export default function CountryPresenter({ navigation }: any) {
     return (
         <CountryScreen 
+            navigation={navigation}
             country="france"
             cities={["paris", "marseille", "lyon"]}
-            goBack={() => console.log("Going back to home screen")}
         />
     )
 }

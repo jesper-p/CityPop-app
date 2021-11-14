@@ -1,17 +1,19 @@
 import React, {FC} from "react";
 import {StyleSheet, View, Text, Pressable, TextInput} from "react-native"
 import { Ionicons } from "@expo/vector-icons"
+import { useNavigation } from "@react-navigation/core";
 
 interface Props {
+    navigation: any;
     city: string;
     population: number;
-    goBack: () => void;
 }
 
 const CityScreen:FC<Props> = (props) => {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}> 
-            <Pressable style={styles.backButton} onPress={props.goBack}>
+            <Pressable style={styles.backButton} onPress={props.navigation.navigate("Home")}>
                 <Ionicons name="arrow-back-outline" size={22} />
                 <Text style={styles.backButtonText}>CityPop</Text>
             </Pressable>

@@ -1,11 +1,12 @@
+import React from 'react';
 import CityScreen from '../screens/CityScreen';
 
-function CityPresenter(){
+export default function CityPresenter({ navigation }: any){
     return (
         <CityScreen 
+            navigation={navigation}
             city="paris"
             population={2244000}
-            goBack={() => console.log("Going back to home screen")}
         /> 
     );
 }

@@ -3,15 +3,15 @@ import {StyleSheet, View, Text, Pressable, TextInput} from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 
 interface Props {
+    navigation: any;
     country: string;
     cities: string[];
-    goBack: () => void;
 }
 
 const CountryScreen:FC<Props> = (props) => {
     return (
         <View style={styles.container}> 
-            <Pressable style={styles.backButton} onPress={props.goBack}>
+            <Pressable style={styles.backButton} onPress={props.navigation.navigate('Home')}>
                 <Ionicons name="arrow-back-outline" size={22} />
                 <Text style={styles.backButtonText}>CityPop</Text>
             </Pressable>
@@ -20,7 +20,7 @@ const CountryScreen:FC<Props> = (props) => {
             </View>
             <View>
                 {props.cities.map(city => 
-                    <Pressable key={city} style={styles.cityButton} onPress={() => console.log(city)}>
+                    <Pressable key={city} style={styles.cityButton} onPress={() => props.navigation.navigate('City')}>
                         <Text style={styles.cityText}>{city}</Text>
                     </Pressable>   
                 )}

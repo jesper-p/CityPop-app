@@ -1,14 +1,14 @@
 import React, {FC} from "react";
 import {StyleSheet, View, Text, Pressable} from "react-native"
+import {useNavigation} from "@react-navigation/native"
 
 interface Props {
-    cityButtonPressed?: string;
-    countryButtonPressed?: string;
-    pressedCity?: () => void;
-    pressedCountry?: () => void;
+    navigation: any;
 }
 
 const HomeScreen:FC<Props> = (props) => {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.homeScreenContainer}>
 
@@ -17,12 +17,12 @@ const HomeScreen:FC<Props> = (props) => {
             </View>
             <View style={styles.buttonsContainer}>
                 <View style={styles.buttonContainer}>
-                    <Pressable style={styles.searchButton} onPress={() => console.log(props.cityButtonPressed)}>
+                    <Pressable style={styles.searchButton} onPress={() => props.navigation.navigate('SearchCity')}>
                         <Text style={styles.buttonText}>SEARCH BY CITY</Text>
                     </Pressable>
                 </View>
                     <View style={styles.buttonContainer}>
-                    <Pressable style={styles.searchButton} onPress={() => console.log(props.countryButtonPressed)}>
+                    <Pressable style={styles.searchButton} onPress={() => props.navigation.navigate('SearchCountry')}>
                         <Text style={styles.buttonText}>SEARCH BY COUNTRY</Text>
                     </Pressable>
                 </View>

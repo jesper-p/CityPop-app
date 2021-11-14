@@ -3,10 +3,11 @@ import {StyleSheet, View, Text, Pressable, TextInput} from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 
 interface Props {
+    navigation: any;
     text: string;
+    nextView: string;
     placeholder: string;
     search: () => void;
-    goBack: () => void;
 }
 
 const SearchScreen:FC<Props> = (props) => {
@@ -14,7 +15,7 @@ const SearchScreen:FC<Props> = (props) => {
 
     return (
         <View style={styles.container}> 
-            <Pressable style={styles.backButton} onPress={props.goBack}>
+            <Pressable style={styles.backButton} onPress={props.navigation.navigate('Home')}>
                 <Ionicons name="arrow-back-outline" size={22} />
                 <Text style={styles.backButtonText}>CityPop</Text>
             </Pressable>
@@ -30,7 +31,7 @@ const SearchScreen:FC<Props> = (props) => {
                 />
             </View>
 
-            <Pressable style={styles.searchButton} onPress={props.search}>
+            <Pressable style={styles.searchButton} onPress={props.navigation.navigate(props.nextView)}>
                 <Ionicons name="search-circle-outline" size={70} />
             </Pressable>
         </View>

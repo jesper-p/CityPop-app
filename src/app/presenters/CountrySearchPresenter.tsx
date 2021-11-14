@@ -1,13 +1,14 @@
+import React from 'react';
 import SearchScreen from '../screens/SearchScreen';
 
-function CountrySearchPresenter() {
+export default function CountrySearchPresenter({ navigation }: any) {
     return (
         <SearchScreen 
-        text="SEARCH BY COUNTRY" 
+        navigation={navigation}
+        text="SEARCH BY COUNTRY"
+        nextView="Country" 
         placeholder="Enter a country" 
         search={() => console.log("search")} 
-        onChangeText={(text) => console.log(text)}
-        goBack={() => console.log("Going back to home screen")}
         /> 
     )
 }
