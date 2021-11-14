@@ -6,11 +6,12 @@ interface Props {
     text: string;
     placeholder: string;
     search: () => void;
-    onChangeText: (inputText:string) => void;
     goBack: () => void;
 }
 
 const SearchScreen:FC<Props> = (props) => {
+    const [value, onChangeText] = React.useState("placeholder")
+
     return (
         <View style={styles.container}> 
             <Pressable style={styles.backButton} onPress={props.goBack}>
@@ -25,7 +26,7 @@ const SearchScreen:FC<Props> = (props) => {
                     style={styles.input}
                     textAlign={'center'}
                     placeholder={props.placeholder}
-                    onChangeText={props.onChangeText}
+                    onChangeText={(text) => onChangeText(text)}
                 />
             </View>
 
