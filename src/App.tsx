@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import CityScreen from './app/screens/CityScreen';
 import CountryScreen from './app/screens/CountryScreen';
 import HomeScreen from './app/screens/HomeScreen';
 import SearchScreen from './app/screens/SearchScreen';
@@ -16,6 +17,11 @@ export default function App() {
         onChangeText={(text) => console.log(text)}
         goBack={() => console.log("Going back to home screen")}
         /> */}
+      <CityScreen 
+        city="paris"
+        population={2244000}
+        goBack={() => console.log("Going back to home screen")}
+      />
       <CountryScreen 
         country="france"
         cities={["paris", "marseille", "lyon"]}
